@@ -1,0 +1,3131 @@
+<!doctype html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+
+    <title>openshift API documentation</title>
+    <meta name="description" content="" />
+
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
+  
+  <style type="text/css">
+  
+* {
+  box-sizing: border-box;
+}
+/*! normalize.css v1.1.1 | MIT License | git.io/normalize */
+
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block;
+}
+
+/**
+ * Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+
+audio,
+canvas,
+video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
+ * Known issue: no IE 6 support.
+ */
+
+[hidden] {
+    display: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+/**
+ * 1. Prevent system color scheme's background color being used in Firefox, IE,
+ *    and Opera.
+ * 2. Prevent system color scheme's text color being used in Firefox, IE, and
+ *    Opera.
+ * 3. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ * 4. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+    background: #fff; /* 1 */
+    color: #000; /* 2 */
+    font-size: 100%; /* 3 */
+    -webkit-text-size-adjust: 100%; /* 4 */
+    -ms-text-size-adjust: 100%; /* 4 */
+}
+
+/**
+ * Address `font-family` inconsistency between `textarea` and other form
+ * elements.
+ */
+
+html,
+button,
+input,
+select,
+textarea {
+    font-family: sans-serif;
+}
+
+/**
+ * Address margins handled incorrectly in IE 6/7.
+ */
+
+body {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+
+a:focus {
+    outline: thin dotted;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+/**
+ * Address font sizes and margins set differently in IE 6/7.
+ * Address font sizes within `section` and `article` in Firefox 4+, Safari 5,
+ * and Chrome.
+ */
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 0.83em 0;
+}
+
+h3 {
+    font-size: 1.17em;
+    margin: 1em 0;
+}
+
+h4 {
+    font-size: 1em;
+    margin: 1.33em 0;
+}
+
+h5 {
+    font-size: 0.83em;
+    margin: 1.67em 0;
+}
+
+h6 {
+    font-size: 0.67em;
+    margin: 2.33em 0;
+}
+
+/**
+ * Address styling not present in IE 7/8/9, Safari 5, and Chrome.
+ */
+
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 3+, Safari 4/5, and Chrome.
+ */
+
+b,
+strong {
+    font-weight: bold;
+}
+
+blockquote {
+    margin: 1em 40px;
+}
+
+/**
+ * Address styling not present in Safari 5 and Chrome.
+ */
+
+dfn {
+    font-style: italic;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ * Known issue: no IE 6/7 normalization.
+ */
+
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 6/7/8/9.
+ */
+
+mark {
+    background: #ff0;
+    color: #000;
+}
+
+/**
+ * Address margins set differently in IE 6/7.
+ */
+
+p,
+pre {
+    margin: 1em 0;
+}
+
+/**
+ * Correct font family set oddly in IE 6, Safari 4/5, and Chrome.
+ */
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, serif;
+    _font-family: 'courier new', monospace;
+    font-size: 1em;
+}
+
+/**
+ * Improve readability of pre-formatted text in all browsers.
+ */
+
+pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/**
+ * Address CSS quotes not supported in IE 6/7.
+ */
+
+q {
+    quotes: none;
+}
+
+/**
+ * Address `quotes` property not supported in Safari 4.
+ */
+
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+    font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+/* ==========================================================================
+   Lists
+   ========================================================================== */
+
+/**
+ * Address margins set differently in IE 6/7.
+ */
+
+dl,
+menu,
+ol,
+ul {
+    margin: 1em 0;
+}
+
+dd {
+    margin: 0 0 0 40px;
+}
+
+/**
+ * Address paddings set differently in IE 6/7.
+ */
+
+menu,
+ol,
+ul {
+    padding: 0 0 0 40px;
+}
+
+/**
+ * Correct list images handled incorrectly in IE 7.
+ */
+
+nav ul,
+nav ol {
+    list-style: none;
+    list-style-image: none;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+
+/**
+ * 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3.
+ * 2. Improve image quality when scaled in IE 7.
+ */
+
+img {
+    border: 0; /* 1 */
+    -ms-interpolation-mode: bicubic; /* 2 */
+}
+
+/**
+ * Correct overflow displayed oddly in IE 9.
+ */
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+
+/**
+ * Address margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
+ */
+
+figure {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+/**
+ * Correct margin displayed oddly in IE 6/7.
+ */
+
+form {
+    margin: 0;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct color not being inherited in IE 6/7/8/9.
+ * 2. Correct text not wrapping in Firefox 3.
+ * 3. Correct alignment displayed oddly in IE 6/7.
+ */
+
+legend {
+    border: 0; /* 1 */
+    padding: 0;
+    white-space: normal; /* 2 */
+    *margin-left: -7px; /* 3 */
+}
+
+/**
+ * 1. Correct font size not being inherited in all browsers.
+ * 2. Address margins set differently in IE 6/7, Firefox 3+, Safari 5,
+ *    and Chrome.
+ * 3. Improve appearance and consistency in all browsers.
+ */
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%; /* 1 */
+    margin: 0; /* 2 */
+    vertical-align: baseline; /* 3 */
+    *vertical-align: middle; /* 3 */
+}
+
+/**
+ * Address Firefox 3+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+button,
+input {
+    line-height: normal;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+
+button,
+select {
+    text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
+ *    Known issue: inner spacing remains in IE 6.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button; /* 2 */
+    cursor: pointer; /* 3 */
+    *overflow: visible;  /* 4 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+
+/**
+ * 1. Address box sizing set to content-box in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ * 3. Remove excess padding in IE 7.
+ *    Known issue: excess padding remains in IE 6.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+    *height: 13px; /* 3 */
+    *width: 13px; /* 3 */
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+    -webkit-appearance: textfield; /* 1 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box; /* 2 */
+    box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+/**
+ * Remove inner padding and border in Firefox 3+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+/**
+ * 1. Remove default vertical scrollbar in IE 6/7/8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+
+textarea {
+    overflow: auto; /* 1 */
+    vertical-align: top; /* 2 */
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+  </style>
+
+  <style type="text/css">
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+  }
+  body {
+    background: #fff;
+    font-family: "Source Sans Pro", "Helvetica Neueue", Helvetica, sans;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.6em;
+  }
+  #content {
+    width: 70%;
+    max-width: 850px;
+    float: left;
+    padding: 30px 60px;
+    border-left: 1px solid #ddd;
+  }
+  #sidebar {
+    width: 25%;
+    float: left;
+    padding: 30px;
+    overflow: hidden;
+  }
+  #nav {
+    font-size: 130%;
+    margin: 0 0 15px 0;
+  }
+
+  #top {
+    display: block;
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+    font-size: .85em;
+    text-transform: uppercase;
+  }
+
+  #footer {
+    font-size: .75em;
+    padding: 5px 30px;
+    border-top: 1px solid #ddd;
+    text-align: right;
+  }
+    #footer p {
+      margin: 0 0 0 30px;
+      display: inline-block;
+    }
+
+  h1, h2, h3, h4, h5 {
+    font-weight: 300;
+  }
+  h1 {
+    font-size: 2.5em;
+    line-height: 1.1em;
+    margin: 0 0 .50em 0;
+  }
+
+  h2 {
+    font-size: 1.75em;
+    margin: 1em 0 .50em 0;
+  }
+
+  h3 {
+    margin: 25px 0 10px 0;
+  }
+
+  h4 {
+    margin: 0;
+    font-size: 105%;
+  }
+
+  a {
+    color: #058;
+    text-decoration: none;
+    transition: color .3s ease-in-out;
+  }
+
+  a:hover {
+    color: #e08524;
+    transition: color .3s ease-in-out;
+  }
+
+  pre, code, .mono, .name {
+    font-family: "Ubuntu Mono", "Cousine", "DejaVu Sans Mono", monospace;
+  }
+
+  .title .name {
+    font-weight: bold;
+  }
+  .section-title {
+    margin-top: 2em;
+  }
+  .ident {
+    color: #900;
+  }
+
+  code {
+    background: #f9f9f9;
+  } 
+
+  pre {
+    background: #fefefe;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 0 #f3f3f3;
+    margin: 0 30px;
+    padding: 15px 30px;
+  }
+
+  .codehilite {
+    margin: 0 30px 10px 30px;
+  }
+
+    .codehilite pre {
+      margin: 0;
+    }
+    .codehilite .err { background: #ff3300; color: #fff !important; } 
+
+  table#module-list {
+    font-size: 110%;
+  }
+
+    table#module-list tr td:first-child {
+      padding-right: 10px;
+      white-space: nowrap;
+    }
+
+    table#module-list td {
+      vertical-align: top;
+      padding-bottom: 8px;
+    }
+
+      table#module-list td p {
+        margin: 0 0 7px 0;
+      }
+
+  .def {
+    display: table;
+  }
+
+    .def p {
+      display: table-cell;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .def p:first-child {
+      white-space: nowrap;
+    }
+
+    .def p:last-child {
+      width: 100%;
+    }
+
+
+  #index {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+    ul#index .class_name {
+      /* font-size: 110%; */
+      font-weight: bold;
+    }
+    #index ul {
+      margin: 0;
+    }
+
+  .item {
+    margin: 0 0 15px 0;
+  }
+
+    .item .class {
+      margin: 0 0 25px 30px;
+    }
+
+      .item .class ul.class_list {
+        margin: 0 0 20px 0;
+      }
+
+    .item .name {
+      background: #fafafa;
+      margin: 0;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 3px;
+      display: inline-block;
+      min-width: 40%;
+    }
+      .item .name:hover {
+        background: #f6f6f6;
+      }
+
+    .item .empty_desc {
+      margin: 0 0 5px 0;
+      padding: 0;
+    }
+
+    .item .inheritance {
+      margin: 3px 0 0 30px;
+    }
+
+    .item .inherited {
+      color: #666;
+    }
+
+    .item .desc {
+      padding: 0 8px;
+      margin: 0;
+    }
+
+      .item .desc p {
+        margin: 0 0 10px 0;
+      }
+
+    .source_cont {
+      margin: 0;
+      padding: 0;
+    }
+
+    .source_link a {
+      background: #ffc300;
+      font-weight: 400;
+      font-size: .75em;
+      text-transform: uppercase;
+      color: #fff;
+      text-shadow: 1px 1px 0 #f4b700;
+      
+      padding: 3px 8px;
+      border-radius: 2px;
+      transition: background .3s ease-in-out;
+    }
+      .source_link a:hover {
+        background: #FF7200;
+        text-shadow: none;
+        transition: background .3s ease-in-out;
+      }
+
+    .source {
+      display: none;
+      max-height: 600px;
+      overflow-y: scroll;
+      margin-bottom: 15px;
+    }
+
+      .source .codehilite {
+        margin: 0;
+      }
+
+  .desc h1, .desc h2, .desc h3 {
+    font-size: 100% !important;
+  }
+  .clear {
+    clear: both;
+  }
+
+  @media all and (max-width: 950px) {
+    #sidebar {
+      width: 35%;
+    }
+    #content {
+      width: 65%;
+    }
+  }
+  @media all and (max-width: 650px) {
+    #top {
+      display: none;
+    }
+    #sidebar {
+      float: none;
+      width: auto;
+    }
+    #content {
+      float: none;
+      width: auto;
+      padding: 30px;
+    }
+
+    #index ul {
+      padding: 0;
+      margin-bottom: 15px;
+    }
+    #index ul li {
+      display: inline-block;
+      margin-right: 30px;
+    }
+    #footer {
+      text-align: left;
+    }
+    #footer p {
+      display: block;
+      margin: inherit;
+    }
+  }
+
+  /*****************************/
+
+  </style>
+
+
+  <style type="text/css">
+  
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
+
+  </style>
+
+  <script type="text/javascript">
+  function toggle(id, $link) {
+    $node = document.getElementById(id);
+    if (!$node)
+    return;
+    if (!$node.style.display || $node.style.display == 'none') {
+    $node.style.display = 'block';
+    $link.innerHTML = 'Hide source &nequiv;';
+    } else {
+    $node.style.display = 'none';
+    $link.innerHTML = 'Show source &equiv;';
+    }
+  }
+  </script>
+</head>
+<body>
+<a href="#" id="top">Top</a>
+
+<div id="container">
+    
+  
+  <div id="sidebar">
+    <h1>Index</h1>
+    <ul id="index">
+
+
+    <li class="set"><h3><a href="#header-classes">Classes</a></h3>
+      <ul>
+        <li class="mono">
+        <span class="class_name"><a href="#openshift.Openshift">Openshift</a></span>
+        
+          
+  <ul>
+    <li class="mono"><a href="#openshift.Openshift.__init__">__init__</a></li>
+    <li class="mono"><a href="#openshift.Openshift.createSecret">createSecret</a></li>
+    <li class="mono"><a href="#openshift.Openshift.createServiceAccount">createServiceAccount</a></li>
+    <li class="mono"><a href="#openshift.Openshift.deployApplication">deployApplication</a></li>
+    <li class="mono"><a href="#openshift.Openshift.getBuildConfig">getBuildConfig</a></li>
+    <li class="mono"><a href="#openshift.Openshift.getBuildConfigs">getBuildConfigs</a></li>
+    <li class="mono"><a href="#openshift.Openshift.getConfigMaps">getConfigMaps</a></li>
+    <li class="mono"><a href="#openshift.Openshift.getDeploymentConfig">getDeploymentConfig</a></li>
+    <li class="mono"><a href="#openshift.Openshift.getDeploymentConfigStatus">getDeploymentConfigStatus</a></li>
+    <li class="mono"><a href="#openshift.Openshift.getDeploymentConfigs">getDeploymentConfigs</a></li>
+    <li class="mono"><a href="#openshift.Openshift.getHPA">getHPA</a></li>
+    <li class="mono"><a href="#openshift.Openshift.getImageStream">getImageStream</a></li>
+    <li class="mono"><a href="#openshift.Openshift.getNamespaces">getNamespaces</a></li>
+    <li class="mono"><a href="#openshift.Openshift.getProjects">getProjects</a></li>
+    <li class="mono"><a href="#openshift.Openshift.getRoleBinding">getRoleBinding</a></li>
+    <li class="mono"><a href="#openshift.Openshift.getRoute">getRoute</a></li>
+    <li class="mono"><a href="#openshift.Openshift.getRoutes">getRoutes</a></li>
+    <li class="mono"><a href="#openshift.Openshift.getSecret">getSecret</a></li>
+    <li class="mono"><a href="#openshift.Openshift.getService">getService</a></li>
+    <li class="mono"><a href="#openshift.Openshift.getServiceAccount">getServiceAccount</a></li>
+    <li class="mono"><a href="#openshift.Openshift.gettingToken">gettingToken</a></li>
+    <li class="mono"><a href="#openshift.Openshift.patchBuildConfig">patchBuildConfig</a></li>
+    <li class="mono"><a href="#openshift.Openshift.patchConfigMap">patchConfigMap</a></li>
+    <li class="mono"><a href="#openshift.Openshift.patchDeploymentConfig">patchDeploymentConfig</a></li>
+    <li class="mono"><a href="#openshift.Openshift.patchRoleBinding">patchRoleBinding</a></li>
+    <li class="mono"><a href="#openshift.Openshift.patchRoute">patchRoute</a></li>
+    <li class="mono"><a href="#openshift.Openshift.patchService">patchService</a></li>
+    <li class="mono"><a href="#openshift.Openshift.postRoleBinding">postRoleBinding</a></li>
+    <li class="mono"><a href="#openshift.Openshift.putBuildConfig">putBuildConfig</a></li>
+    <li class="mono"><a href="#openshift.Openshift.putDeploymentConfig">putDeploymentConfig</a></li>
+    <li class="mono"><a href="#openshift.Openshift.putHPA">putHPA</a></li>
+    <li class="mono"><a href="#openshift.Openshift.putRoute">putRoute</a></li>
+    <li class="mono"><a href="#openshift.Openshift.putService">putService</a></li>
+  </ul>
+
+        </li>
+      </ul>
+    </li>
+
+    </ul>
+  </div>
+
+    <article id="content">
+      
+  
+
+  
+
+
+  <header id="section-intro">
+  <h1 class="title"><span class="name">openshift</span> module</h1>
+  
+  
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift', this);">Show source &equiv;</a></p>
+  <div id="source-openshift" class="source">
+    <pre><code># Openshift Script
+# Author: Middleware Team
+# Email: middleware@mutua.es
+# Date: 1/09/19
+# Version: 0.0.1
+
+import requests
+import re
+import json
+import urllib3
+from middlewarelib.exceptions import OpenShiftLoginException
+from middlewarelib import log
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+
+# Clase Openshift que contiene diferentes llamadas a la API
+
+class Openshift:
+
+    __logging_separator = "=" * 100
+
+    def __init__(self, openshift_url, username, password):
+        self.__logger = log.Logging("Openshift module")
+        self._openshift_url = openshift_url
+        self._username = username
+        self._password = password
+        self._token = self.gettingToken()
+        self._headers = {"Authorization": 'Bearer ' + self._token
+                         + " Accept: application/json"}
+        self._headers2 = {"Authorization": 'Bearer ' + self._token,
+                          "Accept": "application/json",
+                          "Content-Type": "application/strategic-merge-patch+json"}
+
+    # Funcion para obtener el Token de autenticacion en Openshift
+
+    def gettingToken(self):
+
+        self.__logger.info("Getting Token " + self._openshift_url)
+        url = self._openshift_url + '/oauth/authorize?response_type=token&client_id=openshift-challenging-client'
+        r = requests.get(url, auth=(self._username, self._password),
+                         verify=False, allow_redirects=True)
+        if(r.status_code != 302 and r.status_code != 200):
+            self.__logger.error("Error getting token")
+            raise OpenShiftLoginException(r.status_code)
+        r1 = re.search('^.*access_token=(.*?)&.*', r.url)
+        token = r1.groups()[0]
+        return token
+
+
+    def getSecret(self, SecretName, namespace):
+
+        """
+        Funcion para crear secret, parametros a introducir:
+
+            - secretName: nombre del secret a crear
+            - namespace: Proyecto en el que crear el secret,incluimos entorno
+            - datajson: json de creacion del secret
+                Ejemplo:
+                        {
+                              "apiVersion": "v1",
+                              "data": {
+                                "db2.datasource.password": "xxxxxxxxxx",
+                                "db2.datasource.username": "xxxxxxxxxx",
+                              },
+                              "kind": "Secret",
+                              "metadata": {
+                                            "name": "application",
+                                            "namespace": self._namespace
+                              },
+                              "type": "Opaque"
+                            }
+        """
+
+        self.__logger.info("Getting Secret " + SecretName
+                           + " info in " + namespace)
+        url = self._openshift_url + "/api/v1/namespaces/" + namespace \
+            + "/secrets/" + SecretName
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+    def createSecret(self, secretName, namespace, datajson={}):
+
+        self.__logger.info("Creating Secret in " + namespace)
+        url = self._openshift_url + "/api/v1/namespaces/" + namespace \
+            + "/secrets"
+        r = requests.post(url, data=json.dumps(datajson),
+                          headers=self._headers, verify=False)
+        return r.status_code
+
+
+    def getRoleBinding(self, rolebindingName, namespace):
+
+        """
+        Funcion para obtener RoleBinding, parametros a introducir:
+
+            - roleBindingName: nombre del Rolebinding
+            - namespace: Proyecto en el que esta el RoleBinding,incluimos entorno
+        """
+
+        self.__logger.info("Getting RoleBinding " + rolebindingName
+                           + " info in " + namespace)
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+            + "/rolebindings/" + rolebindingName
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+
+    def getServiceAccount(self, serviceAccountName, namespace):
+
+        """
+        Funcion para obtener Service Account, parametros a introducir:
+
+            - serviceAccountName: nombre del Service Account
+            - namespace: Proyecto en el que esta el Service Account,incluimos entorno
+        """
+
+        self.__logger.info("Getting Service Account " + serviceAccountName
+                           + " info in " + namespace)
+        url = self._openshift_url + "/api/v1/namespaces/" + namespace \
+            + "/serviceaccounts/" + serviceAccountName
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+    def patchRoleBinding(self, rolebindingName, namespace, datajson={}):
+
+        """
+        Funcion para modificar Role Binding, parametros a introducir:
+
+            - roleBindingName: nombre del Rolebinding
+            - namespace: Proyecto en el que esta el RoleBinding,incluimos entorno
+            - datajson: json de modificacion del RoleBinding.
+        """
+
+        self.__logger.info("Patching RoleBinding " + rolebindingName
+                           + " in " + namespace)
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+            + "/rolebindings/" + rolebindingName
+        r = requests.patch(url, data=json.dumps(datajson),
+                           headers=self._headers2, verify=False)
+        return r.status_code
+
+    def postRoleBinding(self, rolebindingName, namespace, datajson={}):
+
+        self.__logger.info("Post RoleBinding " + rolebindingName
+                           + " in " + namespace)
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+            + "/rolebindings"
+        r = requests.post(url, data=json.dumps(datajson),
+                           headers=self._headers, verify=False)
+        return r
+
+
+    def createServiceAccount(self, serviceAccountName, namespace, datajson={}):
+
+        """
+        Funcion para crear Service Account, parametros a introducir:
+
+            - secretName: nombre del Service Account a crear
+            - namespace: Proyecto en el que crear el Service Account,incluimos entorno
+            - datajson: json de creacion del Service Account
+                Ejemplo:
+                        {
+                            "kind": "ServiceAccount",
+                            "apiVersion": "v1",
+                            "metadata": {
+                                "name": "jenkins",
+                                "namespace": self._namespace
+                            }
+                        }
+        """
+
+        self.__logger.info("Creating Service Account in " + namespace)
+        url = self._openshift_url + "/api/v1/namespaces/" + namespace \
+            + "/serviceaccounts"
+        r = requests.post(url, data=json.dumps(datajson),
+                          headers=self._headers, verify=False)
+        return r.status_code
+
+
+    def getRoutes(self):
+
+        """
+        Funcion para obtener Routes:
+
+        """
+
+        self.__logger.info("Getting Routes")
+        url = self._openshift_url + "/oapi/v1/routes"
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+
+    def getRoute(self, routeName, namespace):
+
+        """
+        Funcion para obtener Route de un Namespace:
+
+        """
+
+        self.__logger.info("Getting Route " + routeName + " in Namespace " + namespace )
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace + "/routes/" + routeName
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+    def getService(self, serviceName, namespace):
+
+        """
+        Funcion para obtener Route de un Namespace:
+
+        """
+
+        self.__logger.info("Getting Service " + serviceName + " in Namespace " + namespace )
+        url = self._openshift_url + "/api/v1/namespaces/" + namespace + "/services/" + serviceName
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+
+    def getProjects(self):
+
+        """
+        Funcion para obtener Proyectos :
+
+        """
+
+        self.__logger.info("Getting getProjects")
+        url = self._openshift_url + "/oapi/v1/projects"
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+    def getNamespaces(self):
+
+        """
+        Funcion para obtener Namespaces :
+
+        """
+
+        self.__logger.info("Getting Namespaces")
+        url = self._openshift_url + "/api/v1/namespaces"
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+
+
+    def getBuildConfigs(self, namespace):
+
+        """
+        Funcion para obtener BuildConfigs :
+
+        """
+
+        self.__logger.info("Getting BuildConfigs in namespace " + namespace)
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+            + "/buildconfigs"
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+
+    def getBuildConfig(self, buildConfigName, namespace):
+
+        """
+        Funcion para obtener un BuildConfig de un Namespace :
+
+        """
+
+        self.__logger.info("Getting BuildConfig " + buildConfigName + " in namespace " + namespace)
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+            + "/buildconfigs/" + buildConfigName
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+    def getDeploymentConfigs(self, namespace):
+
+        """
+        Funcion para obtener los DeploymentsConfigs de un Namespace :
+
+        """
+
+        self.__logger.info("Getting DeploymentConfigs in namespace " + namespace)
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+            + "/deploymentconfigs"
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+
+    def getDeploymentConfig(self, deploymentConfigName, namespace):
+
+        """
+        Funcion para obtener un DeploymentConfig de un Namespace :
+
+        """
+
+        self.__logger.info("Getting DeploymentConfig " + deploymentConfigName + " in namespace " + namespace)
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+            + "/deploymentconfigs/" + deploymentConfigName
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+
+    def getDeploymentConfigStatus(self, deploymentConfigName, namespace):
+
+        """
+        Funcion para obtener el estado de un DeploymentConfig en un Namespace :
+
+        """
+
+        self.__logger.info("Getting DeploymentConfig Status " + deploymentConfigName + " in namespace " + namespace)
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+            + "/deploymentconfigs/" + deploymentConfigName + "/status"
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+    def getConfigMaps(self, namespace):
+
+        """
+        Funcion para obtener ConfigMaps de un namespace :
+
+        """
+
+        self.__logger.info("Getting ConfigMaps in namespace " + namespace)
+        url = self._openshift_url + "/api/v1/namespaces/" + namespace \
+            + "/configmaps"
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+
+    def getHPA(self,HPAname, namespace):
+
+        """
+        Funcion para obtener Horizontal Pod AutoScaler de un namespace :
+
+        """
+
+        self.__logger.info("Getting HPA" + HPAname + " in namespace " + namespace)
+        url = self._openshift_url + "/apis/autoscaling/v1/namespaces/" + namespace \
+            + "/horizontalpodautoscalers/" + HPAname
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+    def getImageStream(self, imageStreamName, namespace):
+
+        """
+        Funcion para obtener ImageStream de un Namespace :
+
+        """
+
+        self.__logger.info("Getting ImageStream" + imageStreamName + " in namespace " + namespace)
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+            + "/imagestreams/" + imageStreamName
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+    def patchBuildConfig(self, buildConfigName, namespace, datajson={}):
+
+        """
+        Funcion para modificar un BuildConfig :
+
+        """
+
+        self.__logger.info("Patching BuildConfig " + buildConfigName
+                           + " in " + namespace)
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+            + "/buildconfigs/" + buildConfigName
+        r = requests.patch(url, data=json.dumps(datajson),
+                           headers=self._headers2, verify=False)
+        return r.status_code
+
+    def patchDeploymentConfig(self, deploymentConfigName, namespace, datajson={}):
+
+        """
+        Funcion para modificar un DeploymentConfig :
+
+        """
+
+        self.__logger.info("Patching DeploymentConfig " + deploymentConfigName
+                           + " in " + namespace)
+        url = self._openshift_url + "/apis/apps.openshift.io/v1/namespaces/" + namespace \
+            + "/deploymentconfigs/" + deploymentConfigName
+        r = requests.patch(url, data=json.dumps(datajson),
+                           headers=self._headers2, verify=False)
+        return r.status_code
+
+    def patchService(self, ServiceName, namespace, datajson={}):
+
+        """
+        Funcion para modificar un Service :
+
+        """
+
+        self.__logger.info("Patching Service " + ServiceName
+                           + " in " + namespace)
+        url = self._openshift_url + "/api/v1/namespaces/" + namespace \
+            + "/services/" + ServiceName
+        r = requests.patch(url, data=json.dumps(datajson),
+                           headers=self._headers2, verify=False)
+        return r.status_code
+
+    def patchRoute(self, RouteName, namespace, datajson={}):
+
+        """
+        Funcion para modificar un Route :
+
+        """
+
+        self.__logger.info("Patching Route " + RouteName
+                           + " in " + namespace)
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+            + "/routes/" + RouteName
+        r = requests.patch(url, data=json.dumps(datajson),
+                           headers=self._headers2, verify=False)
+        return r
+
+    def patchConfigMap(self, configMapName, namespace, datajson={}):
+
+        """
+        Funcion para modificar un ConfigMap :
+
+        """
+
+        self.__logger.info("Patching ConfigMap" + configMapName
+                           + " in " + namespace)
+        url = self._openshift_url + "/api/v1/namespaces/" + namespace \
+            + "/configmaps/" + configMapName
+        r = requests.patch(url, data=datajson,
+                           headers=self._headers2, verify=False)
+        return r.status_code
+
+    def putBuildConfig(self, buildConfigName, namespace, datajson={}):
+
+        """
+        Funcion para reemplazar un BuildConfig :
+
+        """
+
+        self.__logger.info("Replace BuildConfig " + buildConfigName
+                           + " in " + namespace)
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+            + "/buildconfigs/" + buildConfigName
+        r = requests.put(url, data=json.dumps(datajson),
+                           headers=self._headers, verify=False)
+        return r.status_code
+
+
+    def putDeploymentConfig(self, deploymentConfigName, namespace, datajson={}):
+
+        """
+        Funcion para reemplazar un DeploymentConfig :
+
+        """
+
+        self.__logger.info("Replace DeploymentConfig " + deploymentConfigName
+                           + " in " + namespace)
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+            + "/deploymentconfigs/" + deploymentConfigName
+        r = requests.put(url, data=json.dumps(datajson),
+                           headers=self._headers, verify=False)
+        return r.status_code
+
+
+    def putService(self, ServiceName, namespace, datajson={}):
+
+        """
+        Funcion para reemplazar un Service :
+
+        """
+
+        self.__logger.info("Replace Service " + ServiceName
+                           + " in " + namespace)
+        url = self._openshift_url + "/api/v1/namespaces/" + namespace \
+            + "/services/" + ServiceName
+        r = requests.put(url, data=json.dumps(datajson),
+                           headers=self._headers, verify=False)
+        return r.status_code
+
+
+    def putRoute(self, RouteName, namespace, datajson={}):
+
+        """
+        Funcion para reemplazar un Route :
+
+        """
+
+        self.__logger.info("Replace Route " + RouteName
+                           + " in " + namespace)
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+            + "/routes/" + RouteName
+        r = requests.put(url, data=json.dumps(datajson),
+                           headers=self._headers, verify=False)
+        return r
+
+    def putHPA(self, HPAname, namespace, datajson={}):
+
+        """
+        Funcion para reemplazar un HPA :
+
+        """
+
+        self.__logger.info("Replace HPA " + HPAname
+                           + " in " + namespace)
+        url = self._openshift_url + "/apis/autoscaling/v1/namespaces/" + namespace \
+            + "/horizontalpodautoscalers/" + HPAname
+        r = requests.put(url, data=json.dumps(datajson),
+                           headers=self._headers, verify=False)
+        return r
+
+
+    def deployApplication(self, ApplicationName, namespace):
+
+        """
+        Funcion para desplegar una aplicacion :
+
+        """
+
+        self.__logger.info("Deploy applicacion " + ApplicationName
+                           + " in Namespace " + namespace)
+        url = self._openshift_url + "/apis/apps.openshift.io/v1/namespaces/" + namespace \
+             + "/deploymentconfigs/" + ApplicationName + "/instantiate"
+        payload = '{"kind":"DeploymentRequest","apiVersion":"apps.openshift.io/v1","name":"' + ApplicationName + '","force":true}'
+        r = requests.post(url, data=payload, headers=self._headers, verify = False)
+        return r.status_code
+</code></pre>
+  </div>
+
+  </header>
+
+  <section id="section-items">
+
+
+    <h2 class="section-title" id="header-classes">Classes</h2>
+      
+      <div class="item">
+      <p id="openshift.Openshift" class="name">class <span class="ident">Openshift</span></p>
+      
+  
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift" class="source">
+    <pre><code>class Openshift:
+
+    __logging_separator = "=" * 100
+
+    def __init__(self, openshift_url, username, password):
+        self.__logger = log.Logging("Openshift module")
+        self._openshift_url = openshift_url
+        self._username = username
+        self._password = password
+        self._token = self.gettingToken()
+        self._headers = {"Authorization": 'Bearer ' + self._token
+                         + " Accept: application/json"}
+        self._headers2 = {"Authorization": 'Bearer ' + self._token,
+                          "Accept": "application/json",
+                          "Content-Type": "application/strategic-merge-patch+json"}
+
+    # Funcion para obtener el Token de autenticacion en Openshift
+
+    def gettingToken(self):
+
+        self.__logger.info("Getting Token " + self._openshift_url)
+        url = self._openshift_url + '/oauth/authorize?response_type=token&client_id=openshift-challenging-client'
+        r = requests.get(url, auth=(self._username, self._password),
+                         verify=False, allow_redirects=True)
+        if(r.status_code != 302 and r.status_code != 200):
+            self.__logger.error("Error getting token")
+            raise OpenShiftLoginException(r.status_code)
+        r1 = re.search('^.*access_token=(.*?)&.*', r.url)
+        token = r1.groups()[0]
+        return token
+
+
+    def getSecret(self, SecretName, namespace):
+
+        """
+        Funcion para crear secret, parametros a introducir:
+
+            - secretName: nombre del secret a crear
+            - namespace: Proyecto en el que crear el secret,incluimos entorno
+            - datajson: json de creacion del secret
+                Ejemplo:
+                        {
+                              "apiVersion": "v1",
+                              "data": {
+                                "db2.datasource.password": "xxxxxxxxxx",
+                                "db2.datasource.username": "xxxxxxxxxx",
+                              },
+                              "kind": "Secret",
+                              "metadata": {
+                                            "name": "application",
+                                            "namespace": self._namespace
+                              },
+                              "type": "Opaque"
+                            }
+        """
+
+        self.__logger.info("Getting Secret " + SecretName
+                           + " info in " + namespace)
+        url = self._openshift_url + "/api/v1/namespaces/" + namespace \
+            + "/secrets/" + SecretName
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+    def createSecret(self, secretName, namespace, datajson={}):
+
+        self.__logger.info("Creating Secret in " + namespace)
+        url = self._openshift_url + "/api/v1/namespaces/" + namespace \
+            + "/secrets"
+        r = requests.post(url, data=json.dumps(datajson),
+                          headers=self._headers, verify=False)
+        return r.status_code
+
+
+    def getRoleBinding(self, rolebindingName, namespace):
+
+        """
+        Funcion para obtener RoleBinding, parametros a introducir:
+
+            - roleBindingName: nombre del Rolebinding
+            - namespace: Proyecto en el que esta el RoleBinding,incluimos entorno
+        """
+
+        self.__logger.info("Getting RoleBinding " + rolebindingName
+                           + " info in " + namespace)
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+            + "/rolebindings/" + rolebindingName
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+
+    def getServiceAccount(self, serviceAccountName, namespace):
+
+        """
+        Funcion para obtener Service Account, parametros a introducir:
+
+            - serviceAccountName: nombre del Service Account
+            - namespace: Proyecto en el que esta el Service Account,incluimos entorno
+        """
+
+        self.__logger.info("Getting Service Account " + serviceAccountName
+                           + " info in " + namespace)
+        url = self._openshift_url + "/api/v1/namespaces/" + namespace \
+            + "/serviceaccounts/" + serviceAccountName
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+    def patchRoleBinding(self, rolebindingName, namespace, datajson={}):
+
+        """
+        Funcion para modificar Role Binding, parametros a introducir:
+
+            - roleBindingName: nombre del Rolebinding
+            - namespace: Proyecto en el que esta el RoleBinding,incluimos entorno
+            - datajson: json de modificacion del RoleBinding.
+        """
+
+        self.__logger.info("Patching RoleBinding " + rolebindingName
+                           + " in " + namespace)
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+            + "/rolebindings/" + rolebindingName
+        r = requests.patch(url, data=json.dumps(datajson),
+                           headers=self._headers2, verify=False)
+        return r.status_code
+
+    def postRoleBinding(self, rolebindingName, namespace, datajson={}):
+
+        self.__logger.info("Post RoleBinding " + rolebindingName
+                           + " in " + namespace)
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+            + "/rolebindings"
+        r = requests.post(url, data=json.dumps(datajson),
+                           headers=self._headers, verify=False)
+        return r
+
+
+    def createServiceAccount(self, serviceAccountName, namespace, datajson={}):
+
+        """
+        Funcion para crear Service Account, parametros a introducir:
+
+            - secretName: nombre del Service Account a crear
+            - namespace: Proyecto en el que crear el Service Account,incluimos entorno
+            - datajson: json de creacion del Service Account
+                Ejemplo:
+                        {
+                            "kind": "ServiceAccount",
+                            "apiVersion": "v1",
+                            "metadata": {
+                                "name": "jenkins",
+                                "namespace": self._namespace
+                            }
+                        }
+        """
+
+        self.__logger.info("Creating Service Account in " + namespace)
+        url = self._openshift_url + "/api/v1/namespaces/" + namespace \
+            + "/serviceaccounts"
+        r = requests.post(url, data=json.dumps(datajson),
+                          headers=self._headers, verify=False)
+        return r.status_code
+
+
+    def getRoutes(self):
+
+        """
+        Funcion para obtener Routes:
+
+        """
+
+        self.__logger.info("Getting Routes")
+        url = self._openshift_url + "/oapi/v1/routes"
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+
+    def getRoute(self, routeName, namespace):
+
+        """
+        Funcion para obtener Route de un Namespace:
+
+        """
+
+        self.__logger.info("Getting Route " + routeName + " in Namespace " + namespace )
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace + "/routes/" + routeName
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+    def getService(self, serviceName, namespace):
+
+        """
+        Funcion para obtener Route de un Namespace:
+
+        """
+
+        self.__logger.info("Getting Service " + serviceName + " in Namespace " + namespace )
+        url = self._openshift_url + "/api/v1/namespaces/" + namespace + "/services/" + serviceName
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+
+    def getProjects(self):
+
+        """
+        Funcion para obtener Proyectos :
+
+        """
+
+        self.__logger.info("Getting getProjects")
+        url = self._openshift_url + "/oapi/v1/projects"
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+    def getNamespaces(self):
+
+        """
+        Funcion para obtener Namespaces :
+
+        """
+
+        self.__logger.info("Getting Namespaces")
+        url = self._openshift_url + "/api/v1/namespaces"
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+
+
+    def getBuildConfigs(self, namespace):
+
+        """
+        Funcion para obtener BuildConfigs :
+
+        """
+
+        self.__logger.info("Getting BuildConfigs in namespace " + namespace)
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+            + "/buildconfigs"
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+
+    def getBuildConfig(self, buildConfigName, namespace):
+
+        """
+        Funcion para obtener un BuildConfig de un Namespace :
+
+        """
+
+        self.__logger.info("Getting BuildConfig " + buildConfigName + " in namespace " + namespace)
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+            + "/buildconfigs/" + buildConfigName
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+    def getDeploymentConfigs(self, namespace):
+
+        """
+        Funcion para obtener los DeploymentsConfigs de un Namespace :
+
+        """
+
+        self.__logger.info("Getting DeploymentConfigs in namespace " + namespace)
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+            + "/deploymentconfigs"
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+
+    def getDeploymentConfig(self, deploymentConfigName, namespace):
+
+        """
+        Funcion para obtener un DeploymentConfig de un Namespace :
+
+        """
+
+        self.__logger.info("Getting DeploymentConfig " + deploymentConfigName + " in namespace " + namespace)
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+            + "/deploymentconfigs/" + deploymentConfigName
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+
+    def getDeploymentConfigStatus(self, deploymentConfigName, namespace):
+
+        """
+        Funcion para obtener el estado de un DeploymentConfig en un Namespace :
+
+        """
+
+        self.__logger.info("Getting DeploymentConfig Status " + deploymentConfigName + " in namespace " + namespace)
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+            + "/deploymentconfigs/" + deploymentConfigName + "/status"
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+    def getConfigMaps(self, namespace):
+
+        """
+        Funcion para obtener ConfigMaps de un namespace :
+
+        """
+
+        self.__logger.info("Getting ConfigMaps in namespace " + namespace)
+        url = self._openshift_url + "/api/v1/namespaces/" + namespace \
+            + "/configmaps"
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+
+    def getHPA(self,HPAname, namespace):
+
+        """
+        Funcion para obtener Horizontal Pod AutoScaler de un namespace :
+
+        """
+
+        self.__logger.info("Getting HPA" + HPAname + " in namespace " + namespace)
+        url = self._openshift_url + "/apis/autoscaling/v1/namespaces/" + namespace \
+            + "/horizontalpodautoscalers/" + HPAname
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+    def getImageStream(self, imageStreamName, namespace):
+
+        """
+        Funcion para obtener ImageStream de un Namespace :
+
+        """
+
+        self.__logger.info("Getting ImageStream" + imageStreamName + " in namespace " + namespace)
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+            + "/imagestreams/" + imageStreamName
+        r = requests.get(url, headers=self._headers, verify=False)
+        return r.text
+
+    def patchBuildConfig(self, buildConfigName, namespace, datajson={}):
+
+        """
+        Funcion para modificar un BuildConfig :
+
+        """
+
+        self.__logger.info("Patching BuildConfig " + buildConfigName
+                           + " in " + namespace)
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+            + "/buildconfigs/" + buildConfigName
+        r = requests.patch(url, data=json.dumps(datajson),
+                           headers=self._headers2, verify=False)
+        return r.status_code
+
+    def patchDeploymentConfig(self, deploymentConfigName, namespace, datajson={}):
+
+        """
+        Funcion para modificar un DeploymentConfig :
+
+        """
+
+        self.__logger.info("Patching DeploymentConfig " + deploymentConfigName
+                           + " in " + namespace)
+        url = self._openshift_url + "/apis/apps.openshift.io/v1/namespaces/" + namespace \
+            + "/deploymentconfigs/" + deploymentConfigName
+        r = requests.patch(url, data=json.dumps(datajson),
+                           headers=self._headers2, verify=False)
+        return r.status_code
+
+    def patchService(self, ServiceName, namespace, datajson={}):
+
+        """
+        Funcion para modificar un Service :
+
+        """
+
+        self.__logger.info("Patching Service " + ServiceName
+                           + " in " + namespace)
+        url = self._openshift_url + "/api/v1/namespaces/" + namespace \
+            + "/services/" + ServiceName
+        r = requests.patch(url, data=json.dumps(datajson),
+                           headers=self._headers2, verify=False)
+        return r.status_code
+
+    def patchRoute(self, RouteName, namespace, datajson={}):
+
+        """
+        Funcion para modificar un Route :
+
+        """
+
+        self.__logger.info("Patching Route " + RouteName
+                           + " in " + namespace)
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+            + "/routes/" + RouteName
+        r = requests.patch(url, data=json.dumps(datajson),
+                           headers=self._headers2, verify=False)
+        return r
+
+    def patchConfigMap(self, configMapName, namespace, datajson={}):
+
+        """
+        Funcion para modificar un ConfigMap :
+
+        """
+
+        self.__logger.info("Patching ConfigMap" + configMapName
+                           + " in " + namespace)
+        url = self._openshift_url + "/api/v1/namespaces/" + namespace \
+            + "/configmaps/" + configMapName
+        r = requests.patch(url, data=datajson,
+                           headers=self._headers2, verify=False)
+        return r.status_code
+
+    def putBuildConfig(self, buildConfigName, namespace, datajson={}):
+
+        """
+        Funcion para reemplazar un BuildConfig :
+
+        """
+
+        self.__logger.info("Replace BuildConfig " + buildConfigName
+                           + " in " + namespace)
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+            + "/buildconfigs/" + buildConfigName
+        r = requests.put(url, data=json.dumps(datajson),
+                           headers=self._headers, verify=False)
+        return r.status_code
+
+
+    def putDeploymentConfig(self, deploymentConfigName, namespace, datajson={}):
+
+        """
+        Funcion para reemplazar un DeploymentConfig :
+
+        """
+
+        self.__logger.info("Replace DeploymentConfig " + deploymentConfigName
+                           + " in " + namespace)
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+            + "/deploymentconfigs/" + deploymentConfigName
+        r = requests.put(url, data=json.dumps(datajson),
+                           headers=self._headers, verify=False)
+        return r.status_code
+
+
+    def putService(self, ServiceName, namespace, datajson={}):
+
+        """
+        Funcion para reemplazar un Service :
+
+        """
+
+        self.__logger.info("Replace Service " + ServiceName
+                           + " in " + namespace)
+        url = self._openshift_url + "/api/v1/namespaces/" + namespace \
+            + "/services/" + ServiceName
+        r = requests.put(url, data=json.dumps(datajson),
+                           headers=self._headers, verify=False)
+        return r.status_code
+
+
+    def putRoute(self, RouteName, namespace, datajson={}):
+
+        """
+        Funcion para reemplazar un Route :
+
+        """
+
+        self.__logger.info("Replace Route " + RouteName
+                           + " in " + namespace)
+        url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+            + "/routes/" + RouteName
+        r = requests.put(url, data=json.dumps(datajson),
+                           headers=self._headers, verify=False)
+        return r
+
+    def putHPA(self, HPAname, namespace, datajson={}):
+
+        """
+        Funcion para reemplazar un HPA :
+
+        """
+
+        self.__logger.info("Replace HPA " + HPAname
+                           + " in " + namespace)
+        url = self._openshift_url + "/apis/autoscaling/v1/namespaces/" + namespace \
+            + "/horizontalpodautoscalers/" + HPAname
+        r = requests.put(url, data=json.dumps(datajson),
+                           headers=self._headers, verify=False)
+        return r
+
+
+    def deployApplication(self, ApplicationName, namespace):
+
+        """
+        Funcion para desplegar una aplicacion :
+
+        """
+
+        self.__logger.info("Deploy applicacion " + ApplicationName
+                           + " in Namespace " + namespace)
+        url = self._openshift_url + "/apis/apps.openshift.io/v1/namespaces/" + namespace \
+             + "/deploymentconfigs/" + ApplicationName + "/instantiate"
+        payload = '{"kind":"DeploymentRequest","apiVersion":"apps.openshift.io/v1","name":"' + ApplicationName + '","force":true}'
+        r = requests.post(url, data=payload, headers=self._headers, verify = False)
+        return r.status_code
+</code></pre>
+  </div>
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#openshift.Openshift">Openshift</a></li>
+          </ul>
+          <h3>Methods</h3>
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.__init__">
+    <p>def <span class="ident">__init__</span>(</p><p>self, openshift_url, username, password)</p>
+    </div>
+    
+
+    
+  
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.__init__', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.__init__" class="source">
+    <pre><code>def __init__(self, openshift_url, username, password):
+    self.__logger = log.Logging("Openshift module")
+    self._openshift_url = openshift_url
+    self._username = username
+    self._password = password
+    self._token = self.gettingToken()
+    self._headers = {"Authorization": 'Bearer ' + self._token
+                     + " Accept: application/json"}
+    self._headers2 = {"Authorization": 'Bearer ' + self._token,
+                      "Accept": "application/json",
+                      "Content-Type": "application/strategic-merge-patch+json"}
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.createSecret">
+    <p>def <span class="ident">createSecret</span>(</p><p>self, secretName, namespace, datajson={})</p>
+    </div>
+    
+
+    
+  
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.createSecret', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.createSecret" class="source">
+    <pre><code>def createSecret(self, secretName, namespace, datajson={}):
+    self.__logger.info("Creating Secret in " + namespace)
+    url = self._openshift_url + "/api/v1/namespaces/" + namespace \
+        + "/secrets"
+    r = requests.post(url, data=json.dumps(datajson),
+                      headers=self._headers, verify=False)
+    return r.status_code
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.createServiceAccount">
+    <p>def <span class="ident">createServiceAccount</span>(</p><p>self, serviceAccountName, namespace, datajson={})</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Funcion para crear Service Account, parametros a introducir:</p>
+<ul>
+<li>secretName: nombre del Service Account a crear</li>
+<li>namespace: Proyecto en el que crear el Service Account,incluimos entorno</li>
+<li>datajson: json de creacion del Service Account
+    Ejemplo:
+            {
+                "kind": "ServiceAccount",
+                "apiVersion": "v1",
+                "metadata": {
+                    "name": "jenkins",
+                    "namespace": self._namespace
+                }
+            }</li>
+</ul></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.createServiceAccount', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.createServiceAccount" class="source">
+    <pre><code>def createServiceAccount(self, serviceAccountName, namespace, datajson={}):
+    """
+    Funcion para crear Service Account, parametros a introducir:
+        - secretName: nombre del Service Account a crear
+        - namespace: Proyecto en el que crear el Service Account,incluimos entorno
+        - datajson: json de creacion del Service Account
+            Ejemplo:
+                    {
+                        "kind": "ServiceAccount",
+                        "apiVersion": "v1",
+                        "metadata": {
+                            "name": "jenkins",
+                            "namespace": self._namespace
+                        }
+                    }
+    """
+    self.__logger.info("Creating Service Account in " + namespace)
+    url = self._openshift_url + "/api/v1/namespaces/" + namespace \
+        + "/serviceaccounts"
+    r = requests.post(url, data=json.dumps(datajson),
+                      headers=self._headers, verify=False)
+    return r.status_code
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.deployApplication">
+    <p>def <span class="ident">deployApplication</span>(</p><p>self, ApplicationName, namespace)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Funcion para desplegar una aplicacion :</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.deployApplication', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.deployApplication" class="source">
+    <pre><code>def deployApplication(self, ApplicationName, namespace):
+    """
+    Funcion para desplegar una aplicacion :
+    """
+    self.__logger.info("Deploy applicacion " + ApplicationName
+                       + " in Namespace " + namespace)
+    url = self._openshift_url + "/apis/apps.openshift.io/v1/namespaces/" + namespace \
+         + "/deploymentconfigs/" + ApplicationName + "/instantiate"
+    payload = '{"kind":"DeploymentRequest","apiVersion":"apps.openshift.io/v1","name":"' + ApplicationName + '","force":true}'
+    r = requests.post(url, data=payload, headers=self._headers, verify = False)
+    return r.status_code
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.getBuildConfig">
+    <p>def <span class="ident">getBuildConfig</span>(</p><p>self, buildConfigName, namespace)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Funcion para obtener un BuildConfig de un Namespace :</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.getBuildConfig', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.getBuildConfig" class="source">
+    <pre><code>def getBuildConfig(self, buildConfigName, namespace):
+    """
+    Funcion para obtener un BuildConfig de un Namespace :
+    """
+    self.__logger.info("Getting BuildConfig " + buildConfigName + " in namespace " + namespace)
+    url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+        + "/buildconfigs/" + buildConfigName
+    r = requests.get(url, headers=self._headers, verify=False)
+    return r.text
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.getBuildConfigs">
+    <p>def <span class="ident">getBuildConfigs</span>(</p><p>self, namespace)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Funcion para obtener BuildConfigs :</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.getBuildConfigs', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.getBuildConfigs" class="source">
+    <pre><code>def getBuildConfigs(self, namespace):
+    """
+    Funcion para obtener BuildConfigs :
+    """
+    self.__logger.info("Getting BuildConfigs in namespace " + namespace)
+    url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+        + "/buildconfigs"
+    r = requests.get(url, headers=self._headers, verify=False)
+    return r.text
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.getConfigMaps">
+    <p>def <span class="ident">getConfigMaps</span>(</p><p>self, namespace)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Funcion para obtener ConfigMaps de un namespace :</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.getConfigMaps', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.getConfigMaps" class="source">
+    <pre><code>def getConfigMaps(self, namespace):
+    """
+    Funcion para obtener ConfigMaps de un namespace :
+    """
+    self.__logger.info("Getting ConfigMaps in namespace " + namespace)
+    url = self._openshift_url + "/api/v1/namespaces/" + namespace \
+        + "/configmaps"
+    r = requests.get(url, headers=self._headers, verify=False)
+    return r.text
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.getDeploymentConfig">
+    <p>def <span class="ident">getDeploymentConfig</span>(</p><p>self, deploymentConfigName, namespace)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Funcion para obtener un DeploymentConfig de un Namespace :</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.getDeploymentConfig', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.getDeploymentConfig" class="source">
+    <pre><code>def getDeploymentConfig(self, deploymentConfigName, namespace):
+    """
+    Funcion para obtener un DeploymentConfig de un Namespace :
+    """
+    self.__logger.info("Getting DeploymentConfig " + deploymentConfigName + " in namespace " + namespace)
+    url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+        + "/deploymentconfigs/" + deploymentConfigName
+    r = requests.get(url, headers=self._headers, verify=False)
+    return r.text
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.getDeploymentConfigStatus">
+    <p>def <span class="ident">getDeploymentConfigStatus</span>(</p><p>self, deploymentConfigName, namespace)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Funcion para obtener el estado de un DeploymentConfig en un Namespace :</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.getDeploymentConfigStatus', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.getDeploymentConfigStatus" class="source">
+    <pre><code>def getDeploymentConfigStatus(self, deploymentConfigName, namespace):
+    """
+    Funcion para obtener el estado de un DeploymentConfig en un Namespace :
+    """
+    self.__logger.info("Getting DeploymentConfig Status " + deploymentConfigName + " in namespace " + namespace)
+    url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+        + "/deploymentconfigs/" + deploymentConfigName + "/status"
+    r = requests.get(url, headers=self._headers, verify=False)
+    return r.text
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.getDeploymentConfigs">
+    <p>def <span class="ident">getDeploymentConfigs</span>(</p><p>self, namespace)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Funcion para obtener los DeploymentsConfigs de un Namespace :</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.getDeploymentConfigs', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.getDeploymentConfigs" class="source">
+    <pre><code>def getDeploymentConfigs(self, namespace):
+    """
+    Funcion para obtener los DeploymentsConfigs de un Namespace :
+    """
+    self.__logger.info("Getting DeploymentConfigs in namespace " + namespace)
+    url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+        + "/deploymentconfigs"
+    r = requests.get(url, headers=self._headers, verify=False)
+    return r.text
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.getHPA">
+    <p>def <span class="ident">getHPA</span>(</p><p>self, HPAname, namespace)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Funcion para obtener Horizontal Pod AutoScaler de un namespace :</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.getHPA', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.getHPA" class="source">
+    <pre><code>def getHPA(self,HPAname, namespace):
+    """
+    Funcion para obtener Horizontal Pod AutoScaler de un namespace :
+    """
+    self.__logger.info("Getting HPA" + HPAname + " in namespace " + namespace)
+    url = self._openshift_url + "/apis/autoscaling/v1/namespaces/" + namespace \
+        + "/horizontalpodautoscalers/" + HPAname
+    r = requests.get(url, headers=self._headers, verify=False)
+    return r.text
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.getImageStream">
+    <p>def <span class="ident">getImageStream</span>(</p><p>self, imageStreamName, namespace)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Funcion para obtener ImageStream de un Namespace :</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.getImageStream', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.getImageStream" class="source">
+    <pre><code>def getImageStream(self, imageStreamName, namespace):
+    """
+    Funcion para obtener ImageStream de un Namespace :
+    """
+    self.__logger.info("Getting ImageStream" + imageStreamName + " in namespace " + namespace)
+    url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+        + "/imagestreams/" + imageStreamName
+    r = requests.get(url, headers=self._headers, verify=False)
+    return r.text
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.getNamespaces">
+    <p>def <span class="ident">getNamespaces</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Funcion para obtener Namespaces :</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.getNamespaces', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.getNamespaces" class="source">
+    <pre><code>def getNamespaces(self):
+    """
+    Funcion para obtener Namespaces :
+    """
+    self.__logger.info("Getting Namespaces")
+    url = self._openshift_url + "/api/v1/namespaces"
+    r = requests.get(url, headers=self._headers, verify=False)
+    return r.text
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.getProjects">
+    <p>def <span class="ident">getProjects</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Funcion para obtener Proyectos :</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.getProjects', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.getProjects" class="source">
+    <pre><code>def getProjects(self):
+    """
+    Funcion para obtener Proyectos :
+    """
+    self.__logger.info("Getting getProjects")
+    url = self._openshift_url + "/oapi/v1/projects"
+    r = requests.get(url, headers=self._headers, verify=False)
+    return r.text
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.getRoleBinding">
+    <p>def <span class="ident">getRoleBinding</span>(</p><p>self, rolebindingName, namespace)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Funcion para obtener RoleBinding, parametros a introducir:</p>
+<ul>
+<li>roleBindingName: nombre del Rolebinding</li>
+<li>namespace: Proyecto en el que esta el RoleBinding,incluimos entorno</li>
+</ul></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.getRoleBinding', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.getRoleBinding" class="source">
+    <pre><code>def getRoleBinding(self, rolebindingName, namespace):
+    """
+    Funcion para obtener RoleBinding, parametros a introducir:
+        - roleBindingName: nombre del Rolebinding
+        - namespace: Proyecto en el que esta el RoleBinding,incluimos entorno
+    """
+    self.__logger.info("Getting RoleBinding " + rolebindingName
+                       + " info in " + namespace)
+    url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+        + "/rolebindings/" + rolebindingName
+    r = requests.get(url, headers=self._headers, verify=False)
+    return r.text
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.getRoute">
+    <p>def <span class="ident">getRoute</span>(</p><p>self, routeName, namespace)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Funcion para obtener Route de un Namespace:</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.getRoute', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.getRoute" class="source">
+    <pre><code>def getRoute(self, routeName, namespace):
+    """
+    Funcion para obtener Route de un Namespace:
+    """
+    self.__logger.info("Getting Route " + routeName + " in Namespace " + namespace )
+    url = self._openshift_url + "/oapi/v1/namespaces/" + namespace + "/routes/" + routeName
+    r = requests.get(url, headers=self._headers, verify=False)
+    return r.text
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.getRoutes">
+    <p>def <span class="ident">getRoutes</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Funcion para obtener Routes:</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.getRoutes', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.getRoutes" class="source">
+    <pre><code>def getRoutes(self):
+    """
+    Funcion para obtener Routes:
+    """
+    self.__logger.info("Getting Routes")
+    url = self._openshift_url + "/oapi/v1/routes"
+    r = requests.get(url, headers=self._headers, verify=False)
+    return r.text
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.getSecret">
+    <p>def <span class="ident">getSecret</span>(</p><p>self, SecretName, namespace)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Funcion para crear secret, parametros a introducir:</p>
+<ul>
+<li>secretName: nombre del secret a crear</li>
+<li>namespace: Proyecto en el que crear el secret,incluimos entorno</li>
+<li>datajson: json de creacion del secret
+    Ejemplo:
+            {
+                  "apiVersion": "v1",
+                  "data": {
+                    "db2.datasource.password": "xxxxxxxxxx",
+                    "db2.datasource.username": "xxxxxxxxxx",
+                  },
+                  "kind": "Secret",
+                  "metadata": {
+                                "name": "application",
+                                "namespace": self._namespace
+                  },
+                  "type": "Opaque"
+                }</li>
+</ul></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.getSecret', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.getSecret" class="source">
+    <pre><code>def getSecret(self, SecretName, namespace):
+    """
+    Funcion para crear secret, parametros a introducir:
+        - secretName: nombre del secret a crear
+        - namespace: Proyecto en el que crear el secret,incluimos entorno
+        - datajson: json de creacion del secret
+            Ejemplo:
+                    {
+                          "apiVersion": "v1",
+                          "data": {
+                            "db2.datasource.password": "xxxxxxxxxx",
+                            "db2.datasource.username": "xxxxxxxxxx",
+                          },
+                          "kind": "Secret",
+                          "metadata": {
+                                        "name": "application",
+                                        "namespace": self._namespace
+                          },
+                          "type": "Opaque"
+                        }
+    """
+    self.__logger.info("Getting Secret " + SecretName
+                       + " info in " + namespace)
+    url = self._openshift_url + "/api/v1/namespaces/" + namespace \
+        + "/secrets/" + SecretName
+    r = requests.get(url, headers=self._headers, verify=False)
+    return r.text
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.getService">
+    <p>def <span class="ident">getService</span>(</p><p>self, serviceName, namespace)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Funcion para obtener Route de un Namespace:</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.getService', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.getService" class="source">
+    <pre><code>def getService(self, serviceName, namespace):
+    """
+    Funcion para obtener Route de un Namespace:
+    """
+    self.__logger.info("Getting Service " + serviceName + " in Namespace " + namespace )
+    url = self._openshift_url + "/api/v1/namespaces/" + namespace + "/services/" + serviceName
+    r = requests.get(url, headers=self._headers, verify=False)
+    return r.text
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.getServiceAccount">
+    <p>def <span class="ident">getServiceAccount</span>(</p><p>self, serviceAccountName, namespace)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Funcion para obtener Service Account, parametros a introducir:</p>
+<ul>
+<li>serviceAccountName: nombre del Service Account</li>
+<li>namespace: Proyecto en el que esta el Service Account,incluimos entorno</li>
+</ul></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.getServiceAccount', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.getServiceAccount" class="source">
+    <pre><code>def getServiceAccount(self, serviceAccountName, namespace):
+    """
+    Funcion para obtener Service Account, parametros a introducir:
+        - serviceAccountName: nombre del Service Account
+        - namespace: Proyecto en el que esta el Service Account,incluimos entorno
+    """
+    self.__logger.info("Getting Service Account " + serviceAccountName
+                       + " info in " + namespace)
+    url = self._openshift_url + "/api/v1/namespaces/" + namespace \
+        + "/serviceaccounts/" + serviceAccountName
+    r = requests.get(url, headers=self._headers, verify=False)
+    return r.text
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.gettingToken">
+    <p>def <span class="ident">gettingToken</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.gettingToken', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.gettingToken" class="source">
+    <pre><code>def gettingToken(self):
+    self.__logger.info("Getting Token " + self._openshift_url)
+    url = self._openshift_url + '/oauth/authorize?response_type=token&client_id=openshift-challenging-client'
+    r = requests.get(url, auth=(self._username, self._password),
+                     verify=False, allow_redirects=True)
+    if(r.status_code != 302 and r.status_code != 200):
+        self.__logger.error("Error getting token")
+        raise OpenShiftLoginException(r.status_code)
+    r1 = re.search('^.*access_token=(.*?)&.*', r.url)
+    token = r1.groups()[0]
+    return token
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.patchBuildConfig">
+    <p>def <span class="ident">patchBuildConfig</span>(</p><p>self, buildConfigName, namespace, datajson={})</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Funcion para modificar un BuildConfig :</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.patchBuildConfig', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.patchBuildConfig" class="source">
+    <pre><code>def patchBuildConfig(self, buildConfigName, namespace, datajson={}):
+    """
+    Funcion para modificar un BuildConfig :
+    """
+    self.__logger.info("Patching BuildConfig " + buildConfigName
+                       + " in " + namespace)
+    url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+        + "/buildconfigs/" + buildConfigName
+    r = requests.patch(url, data=json.dumps(datajson),
+                       headers=self._headers2, verify=False)
+    return r.status_code
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.patchConfigMap">
+    <p>def <span class="ident">patchConfigMap</span>(</p><p>self, configMapName, namespace, datajson={})</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Funcion para modificar un ConfigMap :</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.patchConfigMap', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.patchConfigMap" class="source">
+    <pre><code>def patchConfigMap(self, configMapName, namespace, datajson={}):
+    """
+    Funcion para modificar un ConfigMap :
+    """
+    self.__logger.info("Patching ConfigMap" + configMapName
+                       + " in " + namespace)
+    url = self._openshift_url + "/api/v1/namespaces/" + namespace \
+        + "/configmaps/" + configMapName
+    r = requests.patch(url, data=datajson,
+                       headers=self._headers2, verify=False)
+    return r.status_code
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.patchDeploymentConfig">
+    <p>def <span class="ident">patchDeploymentConfig</span>(</p><p>self, deploymentConfigName, namespace, datajson={})</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Funcion para modificar un DeploymentConfig :</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.patchDeploymentConfig', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.patchDeploymentConfig" class="source">
+    <pre><code>def patchDeploymentConfig(self, deploymentConfigName, namespace, datajson={}):
+    """
+    Funcion para modificar un DeploymentConfig :
+    """
+    self.__logger.info("Patching DeploymentConfig " + deploymentConfigName
+                       + " in " + namespace)
+    url = self._openshift_url + "/apis/apps.openshift.io/v1/namespaces/" + namespace \
+        + "/deploymentconfigs/" + deploymentConfigName
+    r = requests.patch(url, data=json.dumps(datajson),
+                       headers=self._headers2, verify=False)
+    return r.status_code
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.patchRoleBinding">
+    <p>def <span class="ident">patchRoleBinding</span>(</p><p>self, rolebindingName, namespace, datajson={})</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Funcion para modificar Role Binding, parametros a introducir:</p>
+<ul>
+<li>roleBindingName: nombre del Rolebinding</li>
+<li>namespace: Proyecto en el que esta el RoleBinding,incluimos entorno</li>
+<li>datajson: json de modificacion del RoleBinding.</li>
+</ul></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.patchRoleBinding', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.patchRoleBinding" class="source">
+    <pre><code>def patchRoleBinding(self, rolebindingName, namespace, datajson={}):
+    """
+    Funcion para modificar Role Binding, parametros a introducir:
+        - roleBindingName: nombre del Rolebinding
+        - namespace: Proyecto en el que esta el RoleBinding,incluimos entorno
+        - datajson: json de modificacion del RoleBinding.
+    """
+    self.__logger.info("Patching RoleBinding " + rolebindingName
+                       + " in " + namespace)
+    url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+        + "/rolebindings/" + rolebindingName
+    r = requests.patch(url, data=json.dumps(datajson),
+                       headers=self._headers2, verify=False)
+    return r.status_code
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.patchRoute">
+    <p>def <span class="ident">patchRoute</span>(</p><p>self, RouteName, namespace, datajson={})</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Funcion para modificar un Route :</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.patchRoute', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.patchRoute" class="source">
+    <pre><code>def patchRoute(self, RouteName, namespace, datajson={}):
+    """
+    Funcion para modificar un Route :
+    """
+    self.__logger.info("Patching Route " + RouteName
+                       + " in " + namespace)
+    url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+        + "/routes/" + RouteName
+    r = requests.patch(url, data=json.dumps(datajson),
+                       headers=self._headers2, verify=False)
+    return r
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.patchService">
+    <p>def <span class="ident">patchService</span>(</p><p>self, ServiceName, namespace, datajson={})</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Funcion para modificar un Service :</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.patchService', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.patchService" class="source">
+    <pre><code>def patchService(self, ServiceName, namespace, datajson={}):
+    """
+    Funcion para modificar un Service :
+    """
+    self.__logger.info("Patching Service " + ServiceName
+                       + " in " + namespace)
+    url = self._openshift_url + "/api/v1/namespaces/" + namespace \
+        + "/services/" + ServiceName
+    r = requests.patch(url, data=json.dumps(datajson),
+                       headers=self._headers2, verify=False)
+    return r.status_code
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.postRoleBinding">
+    <p>def <span class="ident">postRoleBinding</span>(</p><p>self, rolebindingName, namespace, datajson={})</p>
+    </div>
+    
+
+    
+  
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.postRoleBinding', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.postRoleBinding" class="source">
+    <pre><code>def postRoleBinding(self, rolebindingName, namespace, datajson={}):
+    self.__logger.info("Post RoleBinding " + rolebindingName
+                       + " in " + namespace)
+    url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+        + "/rolebindings"
+    r = requests.post(url, data=json.dumps(datajson),
+                       headers=self._headers, verify=False)
+    return r
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.putBuildConfig">
+    <p>def <span class="ident">putBuildConfig</span>(</p><p>self, buildConfigName, namespace, datajson={})</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Funcion para reemplazar un BuildConfig :</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.putBuildConfig', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.putBuildConfig" class="source">
+    <pre><code>def putBuildConfig(self, buildConfigName, namespace, datajson={}):
+    """
+    Funcion para reemplazar un BuildConfig :
+    """
+    self.__logger.info("Replace BuildConfig " + buildConfigName
+                       + " in " + namespace)
+    url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+        + "/buildconfigs/" + buildConfigName
+    r = requests.put(url, data=json.dumps(datajson),
+                       headers=self._headers, verify=False)
+    return r.status_code
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.putDeploymentConfig">
+    <p>def <span class="ident">putDeploymentConfig</span>(</p><p>self, deploymentConfigName, namespace, datajson={})</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Funcion para reemplazar un DeploymentConfig :</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.putDeploymentConfig', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.putDeploymentConfig" class="source">
+    <pre><code>def putDeploymentConfig(self, deploymentConfigName, namespace, datajson={}):
+    """
+    Funcion para reemplazar un DeploymentConfig :
+    """
+    self.__logger.info("Replace DeploymentConfig " + deploymentConfigName
+                       + " in " + namespace)
+    url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+        + "/deploymentconfigs/" + deploymentConfigName
+    r = requests.put(url, data=json.dumps(datajson),
+                       headers=self._headers, verify=False)
+    return r.status_code
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.putHPA">
+    <p>def <span class="ident">putHPA</span>(</p><p>self, HPAname, namespace, datajson={})</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Funcion para reemplazar un HPA :</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.putHPA', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.putHPA" class="source">
+    <pre><code>def putHPA(self, HPAname, namespace, datajson={}):
+    """
+    Funcion para reemplazar un HPA :
+    """
+    self.__logger.info("Replace HPA " + HPAname
+                       + " in " + namespace)
+    url = self._openshift_url + "/apis/autoscaling/v1/namespaces/" + namespace \
+        + "/horizontalpodautoscalers/" + HPAname
+    r = requests.put(url, data=json.dumps(datajson),
+                       headers=self._headers, verify=False)
+    return r
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.putRoute">
+    <p>def <span class="ident">putRoute</span>(</p><p>self, RouteName, namespace, datajson={})</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Funcion para reemplazar un Route :</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.putRoute', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.putRoute" class="source">
+    <pre><code>def putRoute(self, RouteName, namespace, datajson={}):
+    """
+    Funcion para reemplazar un Route :
+    """
+    self.__logger.info("Replace Route " + RouteName
+                       + " in " + namespace)
+    url = self._openshift_url + "/oapi/v1/namespaces/" + namespace \
+        + "/routes/" + RouteName
+    r = requests.put(url, data=json.dumps(datajson),
+                       headers=self._headers, verify=False)
+    return r
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="openshift.Openshift.putService">
+    <p>def <span class="ident">putService</span>(</p><p>self, ServiceName, namespace, datajson={})</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Funcion para reemplazar un Service :</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-openshift.Openshift.putService', this);">Show source &equiv;</a></p>
+  <div id="source-openshift.Openshift.putService" class="source">
+    <pre><code>def putService(self, ServiceName, namespace, datajson={}):
+    """
+    Funcion para reemplazar un Service :
+    """
+    self.__logger.info("Replace Service " + ServiceName
+                       + " in " + namespace)
+    url = self._openshift_url + "/api/v1/namespaces/" + namespace \
+        + "/services/" + ServiceName
+    r = requests.put(url, data=json.dumps(datajson),
+                       headers=self._headers, verify=False)
+    return r.status_code
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+      </div>
+      </div>
+
+  </section>
+
+    </article>
+  <div class="clear"> </div>
+  <footer id="footer">
+    <p>
+      Documentation generated by
+      <a href="https://github.com/BurntSushi/pdoc">pdoc 0.3.2</a>
+    </p>
+
+    <p>pdoc is in the public domain with the
+      <a href="http://unlicense.org">UNLICENSE</a></p>
+
+    <p>Design by <a href="http://nadh.in">Kailash Nadh</a></p>
+  </footer>
+</div>
+</body>
+</html>
